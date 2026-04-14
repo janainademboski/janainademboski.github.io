@@ -1059,10 +1059,11 @@
     /* ----- Responsive ----- */
     @media (max-width: 900px) {
       #hero { grid-template-columns: 1fr; min-height: auto; display: flex; flex-direction: column; }
-      .hero-image-wrap { order: -1; height: 70vw; min-height: 280px; }
-      .hero-content { padding: 2.5rem 2rem 3rem; }
-      .hero-image-wrap::before { background: linear-gradient(to bottom, transparent 70%, var(--cream) 100%); }
-      .hero-deco { left: 2rem; bottom: 2rem; }
+      .hero-image-wrap { order: -1; height: 85vw; max-height: 420px; margin-top: 4.5rem; }
+      .hero-photo { object-position: center 15%; }
+      .hero-image-wrap::before { display: none; }
+      .hero-content { padding: 2rem 2rem 3rem; }
+      .hero-deco { display: none; }
       .sobre-grid, .contato-grid, .processo-grid { grid-template-columns: 1fr; gap: 3rem; }
       .sobre-badge { right: 0; bottom: -1.5rem; }
       .atendimentos-grid { grid-template-columns: 1fr; }
@@ -1088,8 +1089,9 @@
 
     @media (max-width: 600px) {
       .hero-buttons { flex-direction: column; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .hero-content { padding: 6rem 1.5rem 2.5rem; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+      .hero-content { padding: 1.5rem 1.5rem 2.5rem; }
       .section-wrap { padding: 0 1.5rem; }
       #atendimentos, #sobre, #processo, #especialidades, #depoimentos, #contato { padding: 5rem 0; }
     }
@@ -1498,12 +1500,14 @@
         <li><a href="#contato">Contato</a></li>
         <li><a href="/janaina-agenda/">Agenda</a></li>
       </ul>
-      <p style="font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.25);">
-        © <span id="year"></span> Janaína Demboski
-      </p>
-      <p style="font-size: 0.65rem; color: rgba(247,243,238,0.2); margin-top: 0.5rem;">
-        Desenvolvido por <a href="https://saurabhshah.me" target="_blank" rel="noopener" style="color: rgba(247,243,238,0.35); text-decoration: underline;">Saurabh Shah</a>
-      </p>
+      <div style="text-align: right;">
+        <p style="font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.25);">
+          © <span id="year"></span> Janaína Demboski
+        </p>
+        <p style="font-size: 0.65rem; color: rgba(247,243,238,0.2); margin-top: 0.4rem;">
+          Desenvolvido por <a href="https://saurabhshah.me" target="_blank" rel="noopener" style="color: rgba(247,243,238,0.35); text-decoration: underline;">Saurabh Shah</a>
+        </p>
+      </div>
     </div>
   </footer>
 
