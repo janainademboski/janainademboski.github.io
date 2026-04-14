@@ -1056,6 +1056,8 @@
       transform: none;
     }
 
+    .no-js .reveal { opacity: 1; transform: none; }
+
     /* ----- Responsive ----- */
     @media (max-width: 900px) {
       #hero { grid-template-columns: 1fr; min-height: auto; }
@@ -1536,4 +1538,20 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTi
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Fallback: make all visible after 1.5s
+    setTimeout(() => {
+      reveals.forEach(el => el.classList.add('visible'));
+    }, 1500);
+
+  </script>
+
+</body>
+</html>
