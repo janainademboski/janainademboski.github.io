@@ -4,7 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Janaína Demboski | Psicóloga Humanista · CRP 01/31035 · Brasília DF</title>
-  <meta name="description" content="Psicóloga Humanista em Brasília. Atendimento Online, Águas Claras e Plano Piloto. CRP 01/31035." />
+  <meta name="description" content="Psicóloga Humanista em Brasília. Atendimento Online, Águas Claras e Plano Piloto. CRP 01/31035. Agende sua consulta." />
+  <meta name="keywords" content="psicóloga, psicologia, humanista, Brasília, Águas Claras, Plano Piloto, online, terapia, ansiedade, CRP 01/31035" />
+  <meta name="author" content="Janaína Demboski" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://janainademboski.github.io/" />
+
+  <!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://janainademboski.github.io/" />
+  <meta property="og:title" content="Janaína Demboski | Psicóloga Humanista · Brasília DF" />
+  <meta property="og:description" content="Psicóloga Humanista em Brasília. Atendimento Online, Águas Claras e Plano Piloto. Agende sua consulta." />
+  <meta property="og:image" content="https://janainademboski.github.io/sobre.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Janaína Demboski Psicóloga" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Janaína Demboski | Psicóloga Humanista · Brasília DF" />
+  <meta name="twitter:description" content="Psicóloga Humanista em Brasília. Atendimento Online, Águas Claras e Plano Piloto." />
+  <meta name="twitter:image" content="https://janainademboski.github.io/sobre.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="sobre.jpg" />
+  <link rel="apple-touch-icon" href="sobre.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -109,11 +134,14 @@
     .nav-toggle {
       display: none;
       flex-direction: column;
+      justify-content: center;
       gap: 5px;
       cursor: pointer;
-      padding: 4px;
+      padding: 6px;
       background: none;
       border: none;
+      z-index: 201;
+      position: relative;
     }
 
     .nav-toggle span {
@@ -121,8 +149,13 @@
       width: 24px;
       height: 1.5px;
       background: var(--text-dark);
-      transition: var(--transition);
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      transform-origin: center;
     }
+
+    .nav-toggle.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     /* ----- Hero ----- */
     #hero {
@@ -1076,14 +1109,19 @@
         flex-direction: column;
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
+        width: 100vw;
+        height: 100vh;
         background: var(--warm-white);
+        background-color: #faf5f3;
         align-items: center;
         justify-content: center;
         gap: 2rem;
-        z-index: 99;
+        z-index: 200;
+        list-style: none;
       }
-      .nav-links.open a { font-size: 1rem; }
-      .nav-toggle { display: flex; }
+      .nav-links.open #navClose { display: none !important; }
+      .nav-links.open a { font-size: 1.1rem; color: var(--text-dark); }
+      .nav-toggle { display: flex; z-index: 201; position: relative; }
       .processo-cta-col { position: static; }
     }
 
@@ -1102,7 +1140,7 @@
   <!-- Navigation -->
   <nav id="navbar">
     <a href="#hero" class="nav-logo">JD</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
@@ -1117,12 +1155,12 @@
   <!-- Hero -->
   <section id="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Psicóloga Humanista · Brasília DF</p>
+      <p class="hero-eyebrow">Gestalt-terapia · Brasília DF</p>
       <h1 class="hero-name">Janaína Demboski</h1>
       <p class="hero-title">Psicologia que acolhe, escuta e transforma</p>
       <span class="hero-crp">CRP 01/31035</span>
       <p class="hero-tagline">
-        Um espaço seguro para <em>você se reconectar</em> com quem você é, trabalhar seus desafios e construir uma vida com mais sentido.
+        Um espaço acolhedor para <em>você se reconectar</em> consigo mesmo, compreender suas experiências e construir novas formas de existir com mais autenticidade.
       </p>
       <div class="hero-buttons">
         <a href="/janaina-agenda/" class="btn-primary">Agendar Consulta</a>
@@ -1147,7 +1185,7 @@
           <div class="sobre-image-frame">
             <img src="sobre.jpg" alt="Janaína Demboski" class="sobre-img">
             <div class="sobre-badge">
-              <div class="sobre-badge-num">+7</div>
+              <div class="sobre-badge-num">+1</div>
               <div class="sobre-badge-text">Anos de experiência</div>
             </div>
           </div>
@@ -1157,22 +1195,22 @@
           <p class="section-label">Sobre Mim</p>
           <h2 class="section-title">Uma psicóloga que <em>realmente escuta</em></h2>
           <div class="divider"></div>
-          <p>Sou <strong>Janaína Demboski</strong>, psicóloga humanista com registro no CRP 01/31035. Minha abordagem é centrada na pessoa — acredito que cada ser humano tem dentro de si a capacidade de crescer, curar e se transformar.</p>
-          <p>Trabalho com adultos que buscam se compreender melhor, superar dificuldades emocionais, relacionamentos, ansiedade, luto e questões de identidade. Meu papel é criar um espaço seguro, sem julgamentos, onde você possa ser completamente você mesmo.</p>
-          <p>Atendo presencialmente em <strong>Águas Claras</strong> e no <strong>Plano Piloto</strong>, além de oferecer sessões completamente <strong>online</strong> para quem está em qualquer lugar do Brasil.</p>
+          <p>Sou <strong>Janaína Demboski</strong>, psicóloga com registro no CRP 01/31035, com atuação fundamentada na <strong>Gestalt-terapia</strong>. Compreendo o ser humano em sua subjetividade no ambiente, em constante relação e transformação.</p>
+          <p>Acredito no potencial humano como uma força que favorece crescimento, consciência e mudança, reconhecendo que cada pessoa constrói suas formas de estar no mundo a partir de suas experiências.</p>
+          <p>Minha escuta é orientada pelo ajustamento criativo, entendendo que até mesmo os modos de funcionamento que hoje geram sofrimento foram, em algum momento, tentativas de adaptação. Trabalho com adultos que buscam se compreender melhor diante de questões emocionais, relacionais, ansiedade, depressão, TDAH e identidade — oferecendo um espaço acolhedor, sem julgamentos, onde seja possível construir novas formas de existir com mais autenticidade.</p>
 
           <div class="sobre-formacao">
             <div class="formacao-item">
-              <h4>Formação</h4>
-              <p>Graduação em Psicologia<br>Especialização em Abordagem Humanista</p>
+              <h4>Graduação</h4>
+              <p>Psicologia<br>Uniceub/DF</p>
+            </div>
+            <div class="formacao-item">
+              <h4>Especialização</h4>
+              <p>Gestalt-terapia · IPOG<br><em style="font-size:0.85rem;color:var(--text-light);">em andamento</em></p>
             </div>
             <div class="formacao-item">
               <h4>Registro Profissional</h4>
               <p>CRP 01/31035<br>Conselho Regional de Psicologia</p>
-            </div>
-            <div class="formacao-item">
-              <h4>Modalidades</h4>
-              <p>Atendimento Individual<br>Online e Presencial</p>
             </div>
             <div class="formacao-item">
               <h4>Localização</h4>
@@ -1188,31 +1226,38 @@
   <section id="abordagem">
     <div class="abordagem-inner">
       <p class="abordagem-quote reveal">
-        "A terapia não é sobre consertar o que está quebrado — é sobre <em>iluminar o que já existe</em> dentro de você e criar espaço para que floresça."
+        "Cada pessoa constrói suas formas de estar no mundo a partir de suas experiências. Meu papel é criar um espaço onde seja possível <em>construir novas formas de existir</em> com mais autenticidade."
       </p>
-      <p class="abordagem-attr reveal">— Abordagem Humanista Centrada na Pessoa</p>
+      <p class="abordagem-attr reveal">— Janaína Demboski · Gestalt-terapia</p>
 
       <div class="abordagem-pillars reveal">
         <div class="pillar">
-          <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="24" r="20" stroke="#A06A5A" stroke-width="1.5"/>
-            <path d="M16 24 C16 19 20 15 24 15 C28 15 32 19 32 24 C32 29 28 33 24 33" stroke="#A06A5A" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Lucide: ear -->
+          <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#c8a98a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8.5a6 6 0 1 1 11.6 2c-.5 3.5-4.6 3-4.6 5"/>
+            <path d="M6 8.5a6 6 0 0 0 9.813 5.65"/>
+            <circle cx="12" cy="20" r="1"/>
           </svg>
           <h3>Escuta Ativa</h3>
           <p>Presença total e sem julgamentos em cada sessão</p>
         </div>
         <div class="pillar">
-          <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 8 L24 40 M8 24 L40 24" stroke="#A06A5A" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="24" cy="24" r="8" stroke="#A06A5A" stroke-width="1.5"/>
+          <!-- Lucide: heart-handshake -->
+          <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#c8a98a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/>
+            <path d="m18 15-2-2"/><path d="m15 18-2-2"/>
           </svg>
           <h3>Autenticidade</h3>
           <p>Relação terapêutica genuína e transparente</p>
         </div>
         <div class="pillar">
-          <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 36 C12 36 20 22 24 18 C28 14 36 12 36 12" stroke="#A06A5A" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="24" cy="24" r="4" stroke="#A06A5A" stroke-width="1.5"/>
+          <!-- Lucide: sprout -->
+          <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#c8a98a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 20h10"/>
+            <path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+            <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+            <path d="M14.1 6a7 7 0 0 1 1.3 4.3c-1.2.4-2.3.4-3.4 0-1-.3-2-1-2.8-2.4 1.8-1.6 3.3-2.3 4.9-1.9z"/>
           </svg>
           <h3>Crescimento</h3>
           <p>Foco no potencial humano e na transformação</p>
@@ -1233,9 +1278,10 @@
       <div class="atendimentos-grid">
         <div class="atendimento-card reveal">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="3" width="20" height="14" rx="2"/>
-              <path d="M8 21 L16 21 M12 17 L12 21"/>
+            <!-- Lucide: video -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.723v6.554a1 1 0 0 1-1.447.894L15 14"/>
+              <rect x="2" y="6" width="13" height="12" rx="2"/>
             </svg>
           </div>
           <h3>Atendimento Online</h3>
@@ -1245,9 +1291,10 @@
 
         <div class="atendimento-card reveal">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2 C8.13 2 5 5.13 5 9 C5 14.25 12 22 12 22 C12 22 19 14.25 19 9 C19 5.13 15.87 2 12 2Z"/>
-              <circle cx="12" cy="9" r="3"/>
+            <!-- Lucide: map-pin -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
             </svg>
           </div>
           <h3>Águas Claras</h3>
@@ -1257,9 +1304,12 @@
 
         <div class="atendimento-card reveal">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2 C8.13 2 5 5.13 5 9 C5 14.25 12 22 12 22 C12 22 19 14.25 19 9 C19 5.13 15.87 2 12 2Z"/>
-              <circle cx="12" cy="9" r="3"/>
+            <!-- Lucide: building-2 -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/>
+              <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+              <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+              <path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
             </svg>
           </div>
           <h3>Plano Piloto</h3>
@@ -1334,18 +1384,18 @@
       <div class="tags-grid reveal">
         <span class="tag">Ansiedade</span>
         <span class="tag">Depressão</span>
+        <span class="tag">TDAH</span>
         <span class="tag">Autoestima</span>
         <span class="tag">Relacionamentos</span>
+        <span class="tag">Identidade</span>
+        <span class="tag">Questões Emocionais</span>
         <span class="tag">Luto e Perdas</span>
-        <span class="tag">Identidade e Propósito</span>
         <span class="tag">Estresse e Burnout</span>
+        <span class="tag">Autoconhecimento</span>
         <span class="tag">Transições de Vida</span>
-        <span class="tag">Traumas</span>
-        <span class="tag">Fobias</span>
-        <span class="tag">Dificuldades no Trabalho</span>
         <span class="tag">Desenvolvimento Pessoal</span>
         <span class="tag">Saúde Emocional</span>
-        <span class="tag">Crise Existencial</span>
+        <span class="tag">Questões Relacionais</span>
       </div>
     </div>
   </section>
@@ -1406,8 +1456,9 @@
           <div class="contato-info">
             <div class="contato-item reveal">
               <div class="contato-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                <!-- Lucide: message-circle (WhatsApp) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
                 </svg>
               </div>
               <div>
@@ -1418,22 +1469,24 @@
 
             <div class="contato-item reveal">
               <div class="contato-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
+                <!-- Lucide: mail -->
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                 </svg>
               </div>
               <div>
                 <h4>E-mail</h4>
-                <p>contato@janainademboski.com.br</p>
+                <p>janademboskipsi&#64;gmail.com</p>
               </div>
             </div>
 
             <div class="contato-item reveal">
               <div class="contato-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2 C8.13 2 5 5.13 5 9 C5 14.25 12 22 12 22 C12 22 19 14.25 19 9 C19 5.13 15.87 2 12 2Z"/>
-                  <circle cx="12" cy="9" r="3"/>
+                <!-- Lucide: map-pin -->
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
                 </svg>
               </div>
               <div>
@@ -1444,8 +1497,9 @@
 
             <div class="contato-item reveal">
               <div class="contato-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <!-- Lucide: instagram -->
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
@@ -1521,35 +1575,98 @@
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    // ----- Mobile nav toggle -----
+    // ----- Mobile nav — hamburger animates to X -----
     const navToggle = document.getElementById('navToggle');
     const navLinks  = document.getElementById('navLinks');
 
+    function openMenu() {
+      navLinks.classList.add('open');
+      navToggle.classList.add('is-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
     navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+      navToggle.classList.contains('is-open') ? closeMenu() : openMenu();
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
+      link.addEventListener('click', closeMenu);
     });
 
     // ----- Scroll reveal -----
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 100);
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      reveals.forEach(el => revealObserver.observe(el));
+      setTimeout(() => reveals.forEach(el => el.classList.add('visible')), 2000);
+    } else {
+      reveals.forEach(el => el.classList.add('visible'));
+    }
+
+    // ----- Parallax on hero image (desktop only) -----
+    const heroWrap = document.querySelector('.hero-image-wrap');
+    if (heroWrap && window.innerWidth > 900) {
+      window.addEventListener('scroll', () => {
+        heroWrap.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+      }, { passive: true });
+    }
+
+    // ----- Image scale-in on scroll -----
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
+          entry.target.style.transform = 'scale(1)';
+          entry.target.style.opacity = '1';
+          imgObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+    }, { threshold: 0.1 });
 
-    reveals.forEach(el => observer.observe(el));
+    document.querySelectorAll('.sobre-img, .hero-photo').forEach(img => {
+      img.style.transform = 'scale(1.05)';
+      img.style.opacity = '0';
+      img.style.transition = 'transform 1s ease, opacity 0.9s ease';
+      imgObserver.observe(img);
+    });
 
-    // Fallback: make all visible after 1.5s
-    setTimeout(() => {
-      reveals.forEach(el => el.classList.add('visible'));
-    }, 1500);
+    // ----- Counter animation on badge -----
+    const badge = document.querySelector('.sobre-badge-num');
+    if (badge) {
+      const target = parseInt(badge.textContent.replace('+', ''));
+      let started = false;
+      const badgeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            let count = 0;
+            badge.textContent = '+0';
+            const timer = setInterval(() => {
+              count++;
+              badge.textContent = '+' + count;
+              if (count >= target) clearInterval(timer);
+            }, 200);
+          }
+        });
+      }, { threshold: 0.5 });
+      badgeObserver.observe(badge);
+    }
 
   </script>
 
