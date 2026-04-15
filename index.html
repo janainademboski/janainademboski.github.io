@@ -1509,26 +1509,39 @@
           <p class="section-label">Envie uma mensagem</p>
           <h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--text-dark);">Tire suas dúvidas</h3>
 
-          <div class="form-group">
-            <label for="nome">Seu nome</label>
-            <input type="text" id="nome" placeholder="Como posso te chamar?" />
+          <form id="contatoForm" action="https://formspree.io/f/xeevowoa" method="POST">
+            <input type="hidden" name="_subject" value="Nova mensagem do site — Janaína Demboski" />
+            <input type="hidden" name="_language" value="pt" />
+
+            <div class="form-group">
+              <label for="nome">Seu nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Como posso te chamar?" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
+            </div>
+
+            <p class="form-note">Suas informações são confidenciais e não serão compartilhadas com terceiros. Responderei em breve.</p>
+
+            <div id="formMsg" style="display:none; padding: 0.8rem 1rem; border-radius: 2px; font-family: var(--font-serif); font-size: 0.95rem; margin-bottom: 1rem;"></div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; text-align: center; border: none; cursor: pointer; font-family: var(--font-sans);">
+              Enviar mensagem
+            </button>
+          </form>
+
+          <div style="margin-top: 1rem; text-align: center;">
+            <a href="/janaina-agenda/" style="font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); text-decoration: none;">
+              Prefiro agendar diretamente →
+            </a>
           </div>
-
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" placeholder="seu@email.com" />
-          </div>
-
-          <div class="form-group">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
-          </div>
-
-          <p class="form-note">Suas informações são confidenciais e não serão compartilhadas com terceiros. Responderei em breve.</p>
-
-          <a href="/janaina-agenda/" class="btn-primary" style="display: block; text-align: center;">
-            Prefiro agendar diretamente →
-          </a>
         </div>
       </div>
     </div>
@@ -1559,6 +1572,47 @@
   </footer>
 
   <script>
+    // ----- Contact form Formspree -----
+    const contatoForm = document.getElementById('contatoForm');
+    const formMsg     = document.getElementById('formMsg');
+
+    if (contatoForm) {
+      contatoForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = contatoForm.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+
+        try {
+          const res = await fetch(contatoForm.action, {
+            method : 'POST',
+            body   : new FormData(contatoForm),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            formMsg.style.display     = 'block';
+            formMsg.style.background  = 'rgba(74, 122, 90, 0.08)';
+            formMsg.style.border      = '1px solid rgba(74, 122, 90, 0.3)';
+            formMsg.style.color       = '#4a7a5a';
+            formMsg.textContent       = 'Mensagem enviada! Responderei em breve.';
+            contatoForm.reset();
+          } else {
+            throw new Error('Erro');
+          }
+        } catch {
+          formMsg.style.display     = 'block';
+          formMsg.style.background  = 'rgba(192, 57, 43, 0.08)';
+          formMsg.style.border      = '1px solid rgba(192, 57, 43, 0.3)';
+          formMsg.style.color       = '#c0392b';
+          formMsg.textContent       = 'Erro ao enviar. Por favor tente novamente ou entre em contato pelo WhatsApp.';
+        }
+
+        btn.disabled    = false;
+        btn.textContent = 'Enviar mensagem';
+      });
+    }
+
     // ----- Auto year -----
     document.getElementById('year').textContent = new Date().getFullYear();
 
