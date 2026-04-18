@@ -827,29 +827,7 @@ section { position: relative; }
 }
 
 /* ----- CTA Banner ----- */
-#agendar {
-  padding: 6rem 0;
-  background: var(--clay);
-  text-align: center;
-}
-
-#agendar .section-label {
-  color: rgba(247,243,238,0.7);
-}
-
-#agendar .section-title { color: var(--warm-white); margin-bottom: 1rem; }
-#agendar .section-title em { color: rgba(255,255,255,0.75); font-style: italic; }
-
-#agendar p {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  color: rgba(247,243,238,0.8);
-  margin-bottom: 2.5rem;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.8;
-}
+/* #agendar now uses .cta-band class */
 
 .btn-light {
   display: inline-block;
@@ -1110,3 +1088,106 @@ footer {
 .footer-legal       { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,238,0.25); }
 .footer-dev         { font-size: 0.65rem; color: rgba(247,243,238,0.2); margin-top: 0.4rem; }
 .footer-dev-link    { color: rgba(247,243,238,0.35); text-decoration: underline; }
+
+/* ----- Processo — dark 4-column grid ----- */
+#processo {
+  background : #3D2B24;
+  color      : #F2E6E2;
+  padding    : 7rem 0;
+}
+
+#processo .section-label { color: rgba(242,230,226,0.5); }
+#processo .section-label::before { background: var(--clay); }
+#processo .section-title { color: #F2E6E2; }
+#processo .section-title em { color: var(--clay); }
+#processo .divider { background: rgba(242,230,226,0.2); }
+
+.processo-steps-grid {
+  display              : grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap                  : 1px;
+  margin-top           : 3rem;
+  background           : rgba(242,230,226,0.1);
+  border-radius        : 6px;
+  overflow             : hidden;
+}
+
+.processo-step-card {
+  background    : #3D2B24;
+  padding       : 2.5rem 2rem 3rem;
+  display       : flex;
+  flex-direction: column;
+  min-height    : 260px;
+  transition    : background 0.3s;
+}
+
+.processo-step-card:hover { background: rgba(255,255,255,0.04); }
+
+.processo-step-card .step-num {
+  font-family  : var(--font-serif);
+  font-size    : 4rem;
+  font-weight  : 300;
+  line-height  : 1;
+  color        : var(--clay);
+  margin-bottom: auto;
+}
+
+.processo-step-card h3 {
+  font-family  : var(--font-serif);
+  font-size    : 1.2rem;
+  font-weight  : 400;
+  color        : #F2E6E2;
+  margin       : 1.5rem 0 0.5rem;
+}
+
+.processo-step-card p {
+  font-size  : 0.88rem;
+  color      : rgba(242,230,226,0.65);
+  line-height: 1.7;
+  margin     : 0;
+}
+
+@media (max-width: 900px) { .processo-steps-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .processo-steps-grid { grid-template-columns: 1fr; } }
+
+/* ----- CTA Band ----- */
+.cta-band {
+  background: var(--cream);
+  padding   : 7rem 0;
+}
+
+.cta-band-inner {
+  display              : grid;
+  grid-template-columns: 1fr auto;
+  gap                  : 4rem;
+  align-items          : end;
+}
+
+.cta-band-title {
+  font-family  : var(--font-serif);
+  font-size    : clamp(2.5rem, 6vw, 5rem);
+  font-weight  : 300;
+  line-height  : 1;
+  letter-spacing: -0.02em;
+  color        : var(--text-dark);
+  margin       : 0.5rem 0;
+}
+
+.cta-band-title em { color: var(--clay); font-style: italic; }
+
+.cta-band-text {
+  color      : var(--text-mid);
+  font-size  : 1rem;
+  max-width  : 48ch;
+  margin-top : 1.5rem;
+}
+
+.btn-cta-band {
+  padding  : 1.2rem 2rem;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 780px) {
+  .cta-band-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+}
