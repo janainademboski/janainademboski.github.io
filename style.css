@@ -689,6 +689,20 @@ section { position: relative; }
   margin-top: 0.1rem;
 }
 
+/* Override inside dark processo cards */
+.processo-step-card .step-num {
+  width        : auto;
+  height       : auto;
+  border       : none;
+  border-radius: 0;
+  display      : block;
+  font-size    : 4rem;
+  font-weight  : 300;
+  color        : var(--clay);
+  margin-bottom: auto;
+  margin-top   : 0;
+}
+
 .step-body h4 {
   font-family: var(--font-serif);
   font-size: 1.05rem;
@@ -828,6 +842,8 @@ section { position: relative; }
 
 /* ----- CTA Banner ----- */
 /* #agendar now uses .cta-band class */
+
+#especialidades { background: var(--warm-white); padding: 6rem 0; }
 
 .btn-light {
   display: inline-block;
@@ -1123,14 +1139,7 @@ footer {
 
 .processo-step-card:hover { background: rgba(255,255,255,0.04); }
 
-.processo-step-card .step-num {
-  font-family  : var(--font-serif);
-  font-size    : 4rem;
-  font-weight  : 300;
-  line-height  : 1;
-  color        : var(--clay);
-  margin-bottom: auto;
-}
+
 
 .processo-step-card h3 {
   font-family  : var(--font-serif);
